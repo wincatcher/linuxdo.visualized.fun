@@ -55,14 +55,27 @@ export function About({ about }: AboutProps) {
 
   return (
     <div className="space-y-6">
-      <Card className="overflow-hidden border-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl">
-        <CardHeader className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 dark:from-blue-500 dark:to-blue-300 text-white p-8">
+      <Card className="overflow-hidden border border-gray-200/50 dark:border-gray-700/50 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in">
+        <CardHeader className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 dark:from-blue-500/80 dark:via-blue-400/80 dark:to-blue-300/80">
           <div className="flex items-center justify-between">
             <div className="space-y-2">
-              <CardTitle className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
-                {about.title} 社区数据实时报告
-              </CardTitle>
-              <p className="text-lg text-blue-100">{description}</p>
+              <div className="space-y-1">
+                <CardTitle className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                  {about.title} 社区数据实时报告
+                </CardTitle>
+                <p className="text-lg text-blue-100">{description}</p>
+                <div className="flex items-center gap-2 text-blue-100/70 text-sm">
+                  <span>数据来源:</span>
+                  <a
+                    href="https://linux.do/about.json"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-200 transition-colors underline decoration-dotted underline-offset-4"
+                  >
+                    linux.do/about.json
+                  </a>
+                </div>
+              </div>
             </div>
             <div className="text-right">
               <div className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-2xl text-sm text-blue-50">

@@ -34,11 +34,11 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222.2 47.4% 11.2%;
     --foreground: 210 40% 98%;
-    --card: 217.2 32.6% 7%;
+    --card: 217.2 32.6% 17.5%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -75,7 +75,7 @@
 }
 
 .card-hover {
-  @apply transition-all duration-300 ease-in-out;
+  @apply transition-all duration-300 ease-in-out border border-gray-200/50 dark:border-gray-700/50 shadow-md hover:shadow-lg hover:-translate-y-1;
 }
 
 .card-hover:hover {
@@ -89,12 +89,12 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(10px) scale(0.98);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -104,13 +104,13 @@
 
 @keyframes slideUp {
   from {
-    transform: translateY(20px);
     opacity: 0;
+    transform: translateY(20px) scale(0.98);
   }
 
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -128,4 +128,24 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.glass-effect {
+  @apply backdrop-blur-sm bg-white/80 dark:bg-gray-800/50 border border-gray-200/50 dark:border-gray-700/50;
 }

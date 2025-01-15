@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Linux.do 社区数据实时可视化报告
 
-First, run the development server:
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+[![Website](https://img.shields.io/badge/Website-linuxdo.visualized.fun-blue)](https://linuxdo.visualized.fun)
+
+这是一个用于展示 Linux.do 社区数据的可视化项目。项目使用 Next.js 构建，提供实时的社区数据统计和分析。
+
+## 预览
+
+在线访问：[linuxdo.visualized.fun](https://linuxdo.visualized.fun)
+
+## 功能特点
+
+- 🚀 实时数据展示
+- 🌓 明暗主题切换
+- 📊 数据可视化图表
+- 📱 响应式设计
+- ⚡ 自动数据更新（每小时）
+- 🎨 优雅的 UI 设计
+
+## 技术栈
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui
+- Chart.js
+- next-themes
+
+## 开始使用
+
+1. 克隆项目
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/wincatcher/linuxdo.visualized.fun.git
+cd linuxdo.visualized.fun
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 安装依赖
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. 启动开发服务器
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+访问 [http://localhost:3000](http://localhost:3000) 查看运行结果。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 部署
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+项目可以部署在任何支持 Next.js 的平台上，推荐使用 Vercel：
 
-## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wincatcher/linuxdo.visualized.fun)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 数据来源
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+数据通过 Linux.do 提供的 API 获取：
+- API 地址：https://linux.do/about.json
+- 更新频率：每小时
+- 数据类型：社区统计数据
+
+## 贡献指南
+
+欢迎提交 Pull Request 和 Issue。在提交之前，请确保：
+
+1. 代码经过格式化（使用 Prettier）
+2. 所有测试通过
+3. 提交信息清晰明了
+4. 遵循现有的代码风格
+
+## 开源协议
+
+本项目采用 MIT 协议开源。详见 [LICENSE](LICENSE) 文件。
+
+## 作者
+
+- 风巢森淼 ([@wincatcher](https://github.com/wincatcher))
+  - Twitter: [@wincatcher](https://x.com/wincatcher)
+  - Bio: [biobio.fun](https://biobio.fun)
+  - Site: [040408.com](https://040408.com)
+
+## 致谢
+
+- [Linux.do](https://linux.do) - 提供数据支持
+- [Next.js](https://nextjs.org) - React 框架
+- [Tailwind CSS](https://tailwindcss.com) - CSS 框架
+- [Shadcn/ui](https://ui.shadcn.com) - UI 组件库
+- [Chart.js](https://www.chartjs.org/) - 图表库
+- [next-themes](https://github.com/pacocoursey/next-themes) - 主题切换
+
+## 支持项目
+
+如果这个项目对你有帮助，欢迎：
+
+- ⭐ 给项目点个 Star
+- 🐛 提交 Issue 或 PR
+- 📢 分享给更多的人
+
+
+
+
+

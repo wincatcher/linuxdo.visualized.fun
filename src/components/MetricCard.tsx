@@ -44,7 +44,7 @@ export function MetricCard({ stats, metricKey, title }: MetricCardProps) {
   ];
 
   return (
-    <Card className="bg-white dark:bg-gray-800">
+    <Card className="bg-white/90 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-md hover:shadow-lg transition-all duration-300 animate-slide-up">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-lg">
           <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20">
