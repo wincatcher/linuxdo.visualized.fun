@@ -4,18 +4,19 @@ import { Users } from "@/components/Users";
 import { fetchAboutData } from "@/lib/api";
 import { Moderators } from "@/components/Moderators";
 import { Footer } from "@/components/Footer";
+import { AboutData, User } from "@/types";
 
 export default async function Home() {
-  const data = await fetchAboutData();
+  const data = (await fetchAboutData()) as AboutData;
 
   const moderators = [
-    ...data.about.admin_ids.map((id) => {
+    ...data.about.admin_ids.map((id: number) => {
       const user = data.users.find((u) => u.id === id);
-      return { ...user, role: "管理员" };
+      return { ...user, role: "管理员" } as User & { role: string };
     }),
-    ...data.about.moderator_ids.map((id) => {
+    ...data.about.moderator_ids.map((id: number) => {
       const user = data.users.find((u) => u.id === id);
-      return { ...user, role: "版主" };
+      return { ...user, role: "版主" } as User & { role: string };
     }),
   ];
 
