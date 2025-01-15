@@ -13,9 +13,9 @@ type UsersProps = {
   users: {
     id: number;
     username: string;
-    name: string;
+    name?: string;
     avatar_template: string;
-    title: string;
+    title?: string;
     last_seen_at: string;
   }[];
 };
