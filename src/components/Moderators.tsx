@@ -25,6 +25,13 @@ type ModeratorsProps = {
 };
 
 export function Moderators({ moderators }: ModeratorsProps) {
+  const getAvatarUrl = (template: string) => {
+    if (template.startsWith("http")) {
+      return template.replace("{size}", "144");
+    }
+    return `https://linux.do${template.replace("{size}", "144")}`;
+  };
+
   return (
     <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-0">
       <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-400 dark:from-purple-500 dark:to-purple-300 text-white p-6">
@@ -34,7 +41,7 @@ export function Moderators({ moderators }: ModeratorsProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="p-6">
-        <div className="grid gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-4">
           {moderators.map((mod) => (
             <TooltipProvider key={mod.id}>
               <Tooltip>
@@ -42,51 +49,57 @@ export function Moderators({ moderators }: ModeratorsProps) {
                   <Link
                     href={`https://linux.do/u/${mod.username}/`}
                     target="_blank"
-                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group"
+                    className="block"
                   >
-                    <Avatar className="h-12 w-12 ring-2 ring-white/10">
-                      <AvatarImage
-                        src={mod.avatar_template.replace("{size}", "90")}
-                      />
-                      <AvatarFallback>
-                        {mod.name.charAt(0) || mod.username.charAt(0)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <p className="text-sm font-medium truncate">
-                          {mod.name || mod.username}
-                        </p>
-                        <Badge
-                          variant={
-                            mod.role === "管理员" ? "destructive" : "secondary"
-                          }
-                          className="shrink-0"
-                        >
-                          {mod.role}
-                        </Badge>
-                        <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="group relative bg-white dark:bg-gray-800 rounded-xl p-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ExternalLink className="w-4 h-4 text-gray-400" />
                       </div>
-                      <p className="text-sm text-muted-foreground truncate">
-                        {mod.title}
-                      </p>
-                      {mod.categories && (
-                        <div className="flex gap-1 mt-2 flex-wrap">
-                          {mod.categories.map((cat) => (
-                            <Badge
-                              key={cat}
-                              variant="outline"
-                              className="text-xs bg-white/50 dark:bg-black/50"
-                            >
-                              {cat}
-                            </Badge>
-                          ))}
+                      <div className="flex flex-col items-center text-center">
+                        <Avatar className="w-16 h-16 mb-3 ring-2 ring-offset-2 ring-purple-500/20">
+                          <AvatarImage
+                            src={getAvatarUrl(mod.avatar_template)}
+                          />
+                          <AvatarFallback>
+                            {mod.name.charAt(0) || mod.username.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="space-y-2">
+                          <h3 className="font-medium truncate max-w-[150px]">
+                            {mod.name || mod.username}
+                          </h3>
+                          <Badge
+                            variant={
+                              mod.role === "管理员"
+                                ? "destructive"
+                                : "secondary"
+                            }
+                            className="font-normal"
+                          >
+                            {mod.role}
+                          </Badge>
+                          <p className="text-sm text-muted-foreground truncate max-w-[150px]">
+                            {mod.title}
+                          </p>
+                          {mod.categories && (
+                            <div className="flex flex-wrap justify-center gap-1 mt-2">
+                              {mod.categories.map((cat) => (
+                                <Badge
+                                  key={cat}
+                                  variant="outline"
+                                  className="text-xs bg-white/50 dark:bg-black/50"
+                                >
+                                  {cat}
+                                </Badge>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      )}
+                      </div>
                     </div>
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent side="left">
+                <TooltipContent side="top">
                   <div className="space-y-1">
                     <p className="font-medium">{mod.role}信息</p>
                     <p className="text-xs">ID: {mod.id}</p>

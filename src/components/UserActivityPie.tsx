@@ -32,14 +32,14 @@ export function UserActivityPie({ stats }: UserActivityPieProps) {
           stats.chat_users_last_day,
         ],
         backgroundColor: [
-          "rgba(59, 130, 246, 0.8)", // blue-500
-          "rgba(16, 185, 129, 0.8)", // green-500
-          "rgba(249, 115, 22, 0.8)", // orange-500
+          "rgba(96, 165, 250, 0.8)",
+          "rgba(52, 211, 153, 0.8)",
+          "rgba(251, 146, 60, 0.8)",
         ],
         borderColor: [
-          "rgb(59, 130, 246)", // blue-500
-          "rgb(16, 185, 129)", // green-500
-          "rgb(249, 115, 22)", // orange-500
+          "rgb(96, 165, 250)",
+          "rgb(52, 211, 153)",
+          "rgb(251, 146, 60)",
         ],
         borderWidth: 2,
       },
@@ -86,12 +86,18 @@ export function UserActivityPie({ stats }: UserActivityPieProps) {
     },
     cutout: "60%",
     radius: "90%",
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+      duration: 2000,
+      easing: "easeInOutQuart",
+    },
   };
 
   return (
-    <div className="relative p-4">
+    <div className="relative p-4 animate-fade-in">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center">
+        <div className="text-center animate-scale">
           <div className="text-3xl font-bold text-gray-900 dark:text-gray-100">
             {stats.users_count.toLocaleString("zh-CN")}
           </div>
