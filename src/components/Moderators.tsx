@@ -13,9 +13,9 @@ import Link from "next/link";
 type ModeratorInfo = {
   id: number;
   username: string;
-  name: string;
+  name?: string;
   avatar_template: string;
-  title: string;
+  title?: string;
   role: string;
   categories?: string[];
 };
