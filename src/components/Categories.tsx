@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 type Category = {
   id: number;
@@ -16,7 +16,15 @@ type CategoriesProps = {
 };
 
 export function Categories({ categories }: CategoriesProps) {
-  const mainCategories = categories.filter(category => category.parent_category_id === null)
+  const mainCategories = categories.filter(
+    (category) => !category.parent_category_id
+  );
+
+  const getSubCategories = (parentId: number) => {
+    return categories.filter(
+      (category) => category.parent_category_id === parentId
+    );
+  };
 
   return (
     <Card>
@@ -24,23 +32,38 @@ export function Categories({ categories }: CategoriesProps) {
         <CardTitle>分类</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-4">
           {mainCategories.map((category) => (
-            <Badge
-              key={category.id}
-              variant="outline"
-              style={{
-                backgroundColor: `#${category.color}`,
-                color: `#${category.text_color}`,
-              }}
-              className="justify-center py-2 text-sm font-medium"
-            >
-              {category.name}
-            </Badge>
+            <div key={category.id} className="space-y-2">
+              <Badge
+                variant="outline"
+                style={{
+                  backgroundColor: `#${category.color}`,
+                  color: `#${category.text_color}`,
+                }}
+                className="justify-center py-2 text-sm font-medium"
+              >
+                {category.name}
+              </Badge>
+              <div className="ml-4 grid grid-cols-2 gap-2">
+                {getSubCategories(category.id).map((subCategory) => (
+                  <Badge
+                    key={subCategory.id}
+                    variant="outline"
+                    style={{
+                      backgroundColor: `#${subCategory.color}`,
+                      color: `#${subCategory.text_color}`,
+                    }}
+                    className="justify-center py-1 text-xs font-medium"
+                  >
+                    {subCategory.name}
+                  </Badge>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
-

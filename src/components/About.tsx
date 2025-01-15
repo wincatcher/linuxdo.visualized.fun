@@ -1,5 +1,11 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type AboutProps = {
   about: {
@@ -14,7 +20,29 @@ type AboutProps = {
 export function About({ about }: AboutProps) {
   const { description, extended_site_description, stats } = about;
 
-  const formatNumber = (num: number) => new Intl.NumberFormat('zh-CN').format(num);
+  const formatNumber = (num: number) =>
+    new Intl.NumberFormat("zh-CN").format(num);
+
+  const renderStatsForPeriod = (period: string) => {
+    return (
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {Object.entries(stats)
+          .filter(([key]) => key.endsWith(period))
+          .map(([key, value]) => (
+            <Card key={key}>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  {key.split("_").slice(0, -2).join(" ")}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{formatNumber(value)}</div>
+              </CardContent>
+            </Card>
+          ))}
+      </div>
+    );
+  };
 
   return (
     <Card>
@@ -23,7 +51,10 @@ export function About({ about }: AboutProps) {
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="mb-4" dangerouslySetInnerHTML={{ __html: extended_site_description }} />
+        <div
+          className="mb-4"
+          dangerouslySetInnerHTML={{ __html: extended_site_description }}
+        />
         <Tabs defaultValue="day" className="w-full">
           <TabsList>
             <TabsTrigger value="day">过去24小时</TabsTrigger>
@@ -31,26 +62,16 @@ export function About({ about }: AboutProps) {
             <TabsTrigger value="month">过去30天</TabsTrigger>
           </TabsList>
           <TabsContent value="day" className="space-y-4">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {Object.entries(stats)
-                .filter(([key]) => key.endsWith('_last_day'))
-                .map(([key, value]) => (
-                  <Card key={key}>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">
-                        {key.split('_').slice(0, -2).join(' ')}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-2xl font-bold">{formatNumber(value)}</div>
-                    </CardContent>
-                  </Card>
-                ))}
-            </div>
+            {renderStatsForPeriod("last_day")}
+          </TabsContent>
+          <TabsContent value="week" className="space-y-4">
+            {renderStatsForPeriod("7_days")}
+          </TabsContent>
+          <TabsContent value="month" className="space-y-4">
+            {renderStatsForPeriod("30_days")}
           </TabsContent>
         </Tabs>
       </CardContent>
     </Card>
-  )
+  );
 }
-
