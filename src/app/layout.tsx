@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title:
-    "Linux.do 社区数据统计分析 | 开源技术社区实时数据可视化平台 | 社区运营数据监控",
+    "Linux.do 社区数据统计分析 | 技术社区开源实时数据可视化平台 | 社区运营数据监控",
   description:
     "Linux.do 社区数据实时可视化分析平台，提供主题、帖子、用户活跃度、互动数据等多维度统计分析。支持24小时、7天、30天等多个时间维度的数据追踪，实时展示社区活跃度、用户参与度、内容增长等关键指标，助力社区运营决策。",
   keywords:
