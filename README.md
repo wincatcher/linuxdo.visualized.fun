@@ -12,6 +12,11 @@
 
 在线访问：[linuxdo.visualized.fun](https://linuxdo.visualized.fun)
 
+截图：
+
+![Linuxdo社区数据实时可视化报告](https://github.com/user-attachments/assets/1bc2375e-f534-45e8-bfac-e4e7b6946503)
+
+
 ## 🌟 核心特性
 
 - **实时数据监控** - 自动每30分钟更新一次数据，确保信息时效性
