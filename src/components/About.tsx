@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { MetricCard } from "./MetricCard";
-import { ChartPie, Users, MessageSquare, ThumbsUp } from "lucide-react";
+import { ChartPie, Users, MessageSquare } from "lucide-react";
 
 export type AboutProps = {
   about: {

@@ -176,7 +176,7 @@ export function DataComparison({ stats, period, title }: DataComparisonProps) {
                                 : "bg-gray-100 dark:bg-gray-800"
                             }
                           `}
-                          indicatorClassName={`
+                          indicatorColor={`
                             ${
                               trend === "up"
                                 ? "bg-green-500"
