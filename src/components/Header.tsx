@@ -76,7 +76,7 @@ export function Header({ title }: { title: string }) {
                     className="h-9 w-9 rounded-lg"
                     asChild
                   >
-                    <Link href="https://github.com/wincatcher/" target="_blank">
+                    <Link href="https://github.com/wincatcher/linuxdo.visualized.fun" target="_blank">
                       <Github className="h-4 w-4" />
                     </Link>
                   </Button>
