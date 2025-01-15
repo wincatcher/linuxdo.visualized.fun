@@ -2,6 +2,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,11 @@ export default function RootLayout({
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://linuxdo.visualized.fun/" />
+        <script
+          defer
+          src="https://analytics.freeurl.top/script.js"
+          data-website-id="95d34e05-0d9c-478b-ba65-5d865e23a9cb"
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider
@@ -33,6 +39,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <GoogleAnalytics gaId="G-KQFZ0PZ2H4" />
       </body>
     </html>
   );

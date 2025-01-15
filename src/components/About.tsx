@@ -79,14 +79,7 @@ export function About({ about }: AboutProps) {
                 <p className="text-lg text-blue-100">{description}</p>
                 <div className="flex items-center gap-2 text-blue-100/70 text-sm">
                   <span>数据来源:</span>
-                  <a
-                    href="https://linux.do/about.json"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-blue-200 transition-colors underline decoration-dotted underline-offset-4"
-                  >
-                    linux.do/about.json
-                  </a>
+                  <span>linux.do/about.json（30 分钟刷新一次）</span>
                 </div>
               </div>
             </div>
