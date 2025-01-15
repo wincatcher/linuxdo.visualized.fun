@@ -10,6 +10,8 @@ import { StatsChart } from "./StatsChart";
 import { UserActivityPie } from "./UserActivityPie";
 import { Separator } from "@/components/ui/separator";
 import { MetricTrend } from "./MetricTrend";
+import { DataComparison } from "./DataComparison";
+import { MetricCard } from "./MetricCard";
 
 type AboutProps = {
   about: {
@@ -29,12 +31,15 @@ export function About({ about }: AboutProps) {
   const { description, extended_site_description, stats } = about;
 
   const metrics = [
-    { key: "topics", title: "主题" },
-    { key: "posts", title: "帖子" },
-    { key: "users", title: "用户" },
-    { key: "likes", title: "点赞" },
-    { key: "chat_messages", title: "聊天消息" },
+    { key: "topics", title: "主题数据" },
+    { key: "posts", title: "帖子数据" },
+    { key: "users", title: "用户数据" },
+    { key: "active_users", title: "活跃用户" },
+    { key: "participating_users", title: "参与用户" },
+    { key: "likes", title: "点赞数据" },
+    { key: "chat_messages", title: "消息数据" },
     { key: "chat_users", title: "聊天用户" },
+    { key: "chat_channels", title: "聊天频道" },
   ];
 
   const formatNumber = (num: number) =>
@@ -130,10 +135,10 @@ export function About({ about }: AboutProps) {
 
           <div className="grid gap-6 md:grid-cols-2">
             {metrics.map((metric) => (
-              <MetricTrend
+              <MetricCard
                 key={metric.key}
                 stats={stats}
-                metric={metric.key}
+                metricKey={metric.key}
                 title={metric.title}
               />
             ))}
@@ -141,22 +146,15 @@ export function About({ about }: AboutProps) {
 
           <Separator className="my-8" />
 
-          <Tabs defaultValue="day" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 max-w-[400px]">
-              <TabsTrigger value="day">24小时数据</TabsTrigger>
-              <TabsTrigger value="week">7天数据</TabsTrigger>
-              <TabsTrigger value="month">30天数据</TabsTrigger>
-            </TabsList>
-            <TabsContent value="day" className="mt-6">
-              {renderStatsForPeriod("last_day")}
-            </TabsContent>
-            <TabsContent value="week" className="mt-6">
-              {renderStatsForPeriod("7_days")}
-            </TabsContent>
-            <TabsContent value="month" className="mt-6">
-              {renderStatsForPeriod("30_days")}
-            </TabsContent>
-          </Tabs>
+          <div className="space-y-8">
+            <DataComparison
+              stats={stats}
+              period="last_day"
+              title="24小时数据"
+            />
+            <DataComparison stats={stats} period="7_days" title="7天数据" />
+            <DataComparison stats={stats} period="30_days" title="30天数据" />
+          </div>
         </CardContent>
       </Card>
     </div>
