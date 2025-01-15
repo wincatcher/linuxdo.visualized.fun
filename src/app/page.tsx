@@ -1,5 +1,4 @@
 import { About } from "@/components/About";
-import { Categories } from "@/components/Categories";
 import { Header } from "@/components/Header";
 import { Users } from "@/components/Users";
 import { fetchAboutData } from "@/lib/api";
@@ -8,7 +7,6 @@ import { Moderators } from "@/components/Moderators";
 export default async function Home() {
   const data = await fetchAboutData();
 
-  // 处理管理员和版主数据
   const moderators = [
     ...data.about.admin_ids.map((id) => {
       const user = data.users.find((u) => u.id === id);
@@ -25,10 +23,7 @@ export default async function Home() {
       <Header title={data.about.title} />
       <main className="container mx-auto px-4 py-8 space-y-8">
         <About about={data.about} />
-        <div className="grid gap-8 md:grid-cols-2">
-          <Users users={data.users} />
-          <Categories categories={data.categories} />
-        </div>
+        <Users users={data.users} />
         <Moderators moderators={moderators} />
       </main>
     </div>

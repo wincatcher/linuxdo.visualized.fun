@@ -29,25 +29,31 @@ type AboutProps = {
 export function About({ about }: AboutProps) {
   const { description, extended_site_description, stats } = about;
 
-  const metrics = [
-    { key: "topics", title: "主题数据" },
-    { key: "posts", title: "帖子数据" },
-    { key: "users", title: "用户数据" },
-    { key: "active_users", title: "活跃用户" },
-    { key: "participating_users", title: "参与用户" },
-    { key: "likes", title: "点赞数据" },
-    { key: "chat_messages", title: "消息数据" },
-    { key: "chat_users", title: "聊天用户" },
-    { key: "chat_channels", title: "聊天频道" },
-  ];
+  const metricGroups = {
+    内容数据: [
+      { key: "topics", title: "主题数据" },
+      { key: "posts", title: "帖子数据" },
+    ],
+    用户数据: [
+      { key: "users", title: "用户数据" },
+      { key: "active_users", title: "活跃用户" },
+      { key: "participating_users", title: "参与用户" },
+    ],
+    互动数据: [
+      { key: "likes", title: "点赞数据" },
+      { key: "chat_messages", title: "消息数据" },
+      { key: "chat_users", title: "聊天用户" },
+      { key: "chat_channels", title: "聊天频道" },
+    ],
+  };
 
   return (
     <div className="space-y-8">
-      <Card>
+      <Card className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="text-3xl">
+              <CardTitle className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
                 {about.title} 社区数据报告
               </CardTitle>
               <CardDescription className="mt-2">{description}</CardDescription>
@@ -75,16 +81,21 @@ export function About({ about }: AboutProps) {
 
           <Separator className="my-8" />
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {metrics.map((metric) => (
-              <MetricCard
-                key={metric.key}
-                stats={stats}
-                metricKey={metric.key}
-                title={metric.title}
-              />
-            ))}
-          </div>
+          {Object.entries(metricGroups).map(([groupName, metrics]) => (
+            <div key={groupName} className="space-y-6 mb-8">
+              <h3 className="text-lg font-semibold">{groupName}</h3>
+              <div className="grid gap-6 md:grid-cols-2">
+                {metrics.map((metric) => (
+                  <MetricCard
+                    key={metric.key}
+                    stats={stats}
+                    metricKey={metric.key}
+                    title={metric.title}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </CardContent>
       </Card>
     </div>
