@@ -10,10 +10,12 @@ type AboutProps = {
     stats: {
       [key: string]: number;
     };
-    contact_email: string;
-    version: string;
-    site_creation_date: string;
     title: string;
+    admin_ids?: number[];
+    moderator_ids?: number[];
+    contact_email?: string;
+    version?: string;
+    site_creation_date?: string;
   };
 };
 
