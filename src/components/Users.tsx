@@ -71,7 +71,7 @@ export function Users({ users }: UsersProps) {
                               src={getAvatarUrl(user.avatar_template)}
                             />
                             <AvatarFallback className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xl">
-                              {user.name.charAt(0) || user.username.charAt(0)}
+                              {(user.name || user.username).charAt(0)}
                             </AvatarFallback>
                           </Avatar>
                         </div>
