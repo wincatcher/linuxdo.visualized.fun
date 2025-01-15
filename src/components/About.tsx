@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MetricCard } from "./MetricCard";
 import { ChartPie, Users, MessageSquare } from "lucide-react";
@@ -18,6 +21,16 @@ export type AboutProps = {
 };
 
 export function About({ about }: AboutProps) {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const { description, stats } = about;
 
   const metricGroups = {
@@ -79,7 +92,18 @@ export function About({ about }: AboutProps) {
             </div>
             <div className="text-right">
               <div className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-2xl text-sm text-blue-50">
-                当前时间: {new Date().toLocaleString("zh-CN")}
+                当前时间:{" "}
+                <span className="font-mono">
+                  {currentTime.toLocaleString("zh-CN", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: false,
+                  })}
+                </span>
               </div>
             </div>
           </div>
