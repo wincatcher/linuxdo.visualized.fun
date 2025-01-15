@@ -21,7 +21,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <Header title={data.about.title} />
-      <main className="container mx-auto px-4 py-8">
+      <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid gap-8">
           <About about={data.about} />
           <div className="grid gap-8 lg:grid-cols-2">
