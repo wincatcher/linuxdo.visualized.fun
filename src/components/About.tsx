@@ -33,7 +33,7 @@ export function About({ about }: AboutProps) {
     用户数据: {
       icon: <Users className="w-5 h-5 text-green-500" />,
       metrics: [
-        { key: "users", title: "用户数据" },
+        { key: "users", title: "新加用户" },
         { key: "active_users", title: "活跃用户" },
         { key: "participating_users", title: "参与用户" },
       ],

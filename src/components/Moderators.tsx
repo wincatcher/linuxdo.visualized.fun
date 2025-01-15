@@ -65,7 +65,7 @@ export function Moderators({ moderators }: ModeratorsProps) {
                               src={getAvatarUrl(mod.avatar_template)}
                             />
                             <AvatarFallback className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-xl">
-                              {mod.name.charAt(0) || mod.username.charAt(0)}
+                              {(mod.name || mod.username).charAt(0)}
                             </AvatarFallback>
                           </Avatar>
                         </div>
