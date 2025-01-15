@@ -63,7 +63,7 @@ pnpm dev
 
 数据通过 Linux.do 提供的 API 获取：
 - API 地址：https://linux.do/about.json
-- 更新频率：每小时
+- 更新频率：每 30 分钟
 - 数据类型：社区统计数据
 
 ## 贡献指南
