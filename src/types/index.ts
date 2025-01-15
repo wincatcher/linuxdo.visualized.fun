@@ -12,7 +12,6 @@ export interface AboutData {
   about: {
     title: string;
     description: string;
-    extended_site_description: string;
     admin_ids: number[];
     moderator_ids: number[];
     stats: Record<string, number>;

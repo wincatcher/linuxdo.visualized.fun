@@ -3,10 +3,9 @@ import { Separator } from "@/components/ui/separator";
 import { MetricCard } from "./MetricCard";
 import { ChartPie, Users, MessageSquare, ThumbsUp } from "lucide-react";
 
-type AboutProps = {
+export type AboutProps = {
   about: {
     description: string;
-    extended_site_description: string;
     stats: {
       [key: string]: number;
     };
@@ -20,7 +19,7 @@ type AboutProps = {
 };
 
 export function About({ about }: AboutProps) {
-  const { description, extended_site_description, stats } = about;
+  const { description, stats } = about;
 
   const metricGroups = {
     内容数据: {
@@ -87,14 +86,6 @@ export function About({ about }: AboutProps) {
           </div>
         </CardHeader>
         <CardContent className="p-8">
-          {extended_site_description && (
-            <div className="prose dark:prose-invert max-w-none mb-8 p-6 bg-blue-50/50 dark:bg-blue-950/20 rounded-2xl">
-              <div
-                dangerouslySetInnerHTML={{ __html: extended_site_description }}
-              />
-            </div>
-          )}
-
           <div className="grid gap-6">
             {Object.entries(metricGroups).map(
               ([groupName, { icon, metrics, bgColor }]) => (
