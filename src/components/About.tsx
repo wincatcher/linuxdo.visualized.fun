@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { UserActivityPie } from "./UserActivityPie";
 import { Separator } from "@/components/ui/separator";
 import { MetricCard } from "./MetricCard";
 import { ChartPie, Users, MessageSquare, ThumbsUp } from "lucide-react";
@@ -58,16 +57,15 @@ export function About({ about }: AboutProps) {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle className="text-4xl font-bold">
-                {about.title} 社区数据报告
+                {about.title} 社区数据实时报告
               </CardTitle>
               <p className="mt-2 text-blue-50">{description}</p>
             </div>
             <div className="text-right text-sm text-blue-100">
               <div>
-                社区创建于:{" "}
-                {new Date(about.site_creation_date).toLocaleDateString("zh-CN")}
+                当前时间:{" "}
+                {new Date().toLocaleString("zh-CN")}
               </div>
-              <div>当前版本: {about.version}</div>
             </div>
           </div>
         </CardHeader>
@@ -78,14 +76,6 @@ export function About({ about }: AboutProps) {
           />
 
           <div className="grid gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Users className="w-5 h-5 text-blue-500" />
-                用户活跃度分布
-              </h3>
-              <UserActivityPie stats={stats} />
-            </div>
-
             {Object.entries(metricGroups).map(
               ([groupName, { icon, metrics, bgColor }]) => (
                 <div key={groupName} className={`rounded-xl p-6 ${bgColor}`}>
