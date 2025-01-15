@@ -6,22 +6,29 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 [![Website](https://img.shields.io/badge/Website-linuxdo.visualized.fun-blue)](https://linuxdo.visualized.fun)
 
-这是一个用于展示 Linux.do 社区数据的可视化项目。项目使用 Next.js 构建，提供实时的社区数据统计和分析。
+📊 一个专注于展示 Linux.do 社区实时数据的可视化分析平台。基于 Next.js 构建，提供全方位的社区数据洞察，助力社区运营决策。
 
 ## 预览
 
 在线访问：[linuxdo.visualized.fun](https://linuxdo.visualized.fun)
 
-## 功能特点
+## 🌟 核心特性
 
-- 🚀 实时数据展示
-- 🌓 明暗主题切换
-- 📊 数据可视化图表
-- 📱 响应式设计
-- ⚡ 自动数据更新（每小时）
-- 🎨 优雅的 UI 设计
+- **实时数据监控** - 自动每30分钟更新一次数据，确保信息时效性
+- **多维度分析** - 覆盖用户活跃度、内容增长、社区互动等关键指标
+- **数据可视化** - 直观的图表展示，轻松掌握社区动态
+- **深色模式** - 支持明暗主题切换，优化浏览体验
+- **响应式设计** - 完美适配各种设备屏幕
+- **优雅界面** - 精心设计的 UI，提供流畅的用户体验
 
-## 技术栈
+## 🔍 数据维度
+
+- **内容数据** - 主题增长趋势、帖子活跃度分析
+- **用户数据** - 新增用户、活跃用户、参与度跟踪
+- **互动数据** - 点赞数据、消息统计、用户互动分析
+- **时间维度** - 支持 24 小时、7 天、30 天等多个时间段的数据对比
+
+## 🛠️ 技术栈
 
 - Next.js 14
 - TypeScript
@@ -30,7 +37,7 @@
 - Chart.js
 - next-themes
 
-## 开始使用
+## 🚀 快速开始
 
 1. 克隆项目
 
@@ -59,14 +66,14 @@ pnpm dev
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wincatcher/linuxdo.visualized.fun)
 
-## 数据来源
+## 📈 数据来源
 
 数据通过 Linux.do 提供的 API 获取：
 - API 地址：https://linux.do/about.json
 - 更新频率：每 30 分钟
 - 数据类型：社区统计数据
 
-## 贡献指南
+## 🤝 参与贡献
 
 欢迎提交 Pull Request 和 Issue。在提交之前，请确保：
 
@@ -88,14 +95,14 @@ pnpm dev
 
 ## 致谢
 
-- [Linux.do](https://linux.do) - 提供数据支持
+- [Linux.do](https://linux.do) - 特别感谢 [Linux.do](https://linux.do) 提供数据支持！
 - [Next.js](https://nextjs.org) - React 框架
 - [Tailwind CSS](https://tailwindcss.com) - CSS 框架
 - [Shadcn/ui](https://ui.shadcn.com) - UI 组件库
 - [Chart.js](https://www.chartjs.org/) - 图表库
 - [next-themes](https://github.com/pacocoursey/next-themes) - 主题切换
 
-## 支持项目
+## 💖 支持项目
 
 如果这个项目对你有帮助，欢迎：
 
